@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent:staff cds  __hello__
+chown vincent:staff _hello
