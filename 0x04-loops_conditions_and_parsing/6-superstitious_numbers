@@ -16,6 +16,9 @@ do
 	elif [ $i -eq 9 ]
 	then
 		echo "bad luck from Japan"
+	elif [ $i -eq 17 ]
+	then
+		echo "bad luck from italy"
 	fi
 	((i++))
 done
