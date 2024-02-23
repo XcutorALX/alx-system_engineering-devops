@@ -6,7 +6,7 @@
 hours=0
 min=1
 
-echo "Hours: $hours"
+echo "Hour: $hours"
 while [ $hours -lt 13 ]
 do
 	echo "$min"
@@ -15,7 +15,7 @@ do
 		((hours++))
 		if [ "$hours" -lt 13 ]
 		then
-			echo "Hours: $hours"
+			echo "Hour: $hours"
 		fi
 		min=0
 	fi
