@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# A script that read and formats the /etc/passwd data
 
 while IFS= read -r line;
 do
