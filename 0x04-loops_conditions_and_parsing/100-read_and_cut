@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+while IFS= read -r line;
+do
+	usrdir=$(cut -d ':' -f 6 <<< "$line")
+	usrName=$(cut -d ':' -f 1 <<< "$line")
+	usrId=$(cut -d ':' -f 3 <<< "$line")
+	echo "$usrName:$usrId:$usrdir"
+
+done < /etc/passwd
