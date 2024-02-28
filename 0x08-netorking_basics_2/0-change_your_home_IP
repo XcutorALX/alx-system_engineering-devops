@@ -3,4 +3,4 @@
 # facebook.com resolves to 8.8.8.8.
 
 echo -e "127.0.0.2\tlocalhost" > ~/hosts.new
-echo -e "8.8.8.8\tfacebook.com" >> ~/hosts.new && cp ~/hosts.new /etc/hosts
+echo -e "8.8.8.8\tfacebook.com" >> ~/hosts.new && cp -f ~/hosts.new /etc/hosts
