@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script installs nginx on a web server 
+# sets it's default respone to a file contianing Hello world!
+
+rule="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+
+apt-get -y update;
+apt-get -y install nginx;
+ufw allow 'Nginx HTTP';
+echo "Hello World!" >> /var/www/html/index.html
+sudo sed -i "/server_name _;/a \\$rule" /etc/nginx/sites-available/default
+sudo systemctl start nginx

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script installs nginx on a web server 
+# sets it's default respone to a file contianing Hello world!
+apt-get -y update;
+apt-get -y install nginx;
+ufw allow 'Nginx HTTP';
+echo "Hello World!" >> /var/www/html/index.html
+sudo systemctl start nginx
