@@ -6,14 +6,13 @@ package { 'nginx':
 # Create the custom root html
 file { '/var/www/html/index.html':
   ensure  => file,
-  content => 'Hello World!',
+  content => "Hello World!\n",
 }
 
 # Create the error file
 file { '/var/www/html/404.html':
   ensure  => file,
-  content => 'Ceci n\'est pas une page 
-',
+  content => "Ceci n'est pas une page \n\n",
 }
 
 # Create the config file
@@ -44,5 +43,5 @@ file { '/etc/nginx/sites-available/default':
 
 Service { 'nginx':
   ensure  => 'running',
-  require => File['/home/unchained/random'],
+  require => File['/etc/nginx/sites-available/default'],
 }
