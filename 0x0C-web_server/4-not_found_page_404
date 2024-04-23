@@ -2,7 +2,7 @@
 # This script installs nginx on a web server 
 # sets it's default respone to a file contianing Hello world!
 
-rule="\n\terror_page 404 /404.html;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+rule="\n\terror_page 404 /404.html;\n\n\tlocation /redirect_me {\n\t\treturn 404"
 
 apt-get -y update;
 apt-get -y install nginx;
