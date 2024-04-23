@@ -1,5 +1,3 @@
-include nginx
-
 package { 'nginx':
   ensure   => installed,
   provider => 'apt',
