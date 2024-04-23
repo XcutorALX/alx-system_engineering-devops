@@ -17,7 +17,7 @@ file { '/var/www/html/404.html':
 }
 
 # Create the config file
-file { '/home/unchained/random':
+file { '/etc/nginx/sites-available/default':
   ensure => file,
   content => 'server {
         listen 80 default_server;
