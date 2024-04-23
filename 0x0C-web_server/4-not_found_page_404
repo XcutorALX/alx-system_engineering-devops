@@ -9,5 +9,5 @@ apt-get -y install nginx;
 ufw allow 'Nginx HTTP';
 echo "Hello World!" >> /var/www/html/index.html
 sed -i "/server_name _;/a \\$rule" /etc/nginx/sites-available/default
-echo -e "Ceci n'est pas une page\n" > '/var/www/html/404.html'
+echo -e "Ceci n'est pas une page \n" > '/var/www/html/404.html'
 service nginx start
