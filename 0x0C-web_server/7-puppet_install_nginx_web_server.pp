@@ -10,10 +10,11 @@ file { '/var/www/html/index.html':
 }
 
 # Create the error file
-file { 'var/www/html/404.html':
+file { '/var/www/html/404.html':
   ensure  => file,
-  content => 'Ceci n'est pas une page 
+  content => 'Ceci n\'est pas une page 
 ',
+}
 
 # Create the config file
 file { '/home/unchained/random':
