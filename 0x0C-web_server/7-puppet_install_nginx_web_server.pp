@@ -12,7 +12,7 @@ class { 'nginx':
 }
 
 # Create the custom root html
-file { '/var/www/html/index.html'
+file { '/var/www/html/index.html':
   ensure  => file,
   content => 'Hello World!',
 }
