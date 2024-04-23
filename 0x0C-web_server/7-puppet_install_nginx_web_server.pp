@@ -1,12 +1,19 @@
-#package { 'nginx':
-#  ensure => 'installed'
-#}
+# Installs and configures a nginx server
+package { 'nginx':
+  ensure => 'installed'
+}
 
 # Create the custom root html
-#file { '/var/www/html/index.html':
-#  ensure  => file,
-#  content => 'Hello World!',
-#}
+file { '/var/www/html/index.html':
+  ensure  => file,
+  content => 'Hello World!',
+}
+
+# Create the error file
+file { 'var/www/html/404.html':
+  ensure  => file,
+  content => 'Ceci n'est pas une page 
+',
 
 # Create the config file
 file { '/home/unchained/random':
@@ -30,5 +37,5 @@ file { '/home/unchained/random':
         location / {
                 try_files $uri $uri/ =404;
         }
-}'
+}',
 }
