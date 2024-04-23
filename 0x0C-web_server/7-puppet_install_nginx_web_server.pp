@@ -38,4 +38,10 @@ file { '/home/unchained/random':
                 try_files $uri $uri/ =404;
         }
 }',
+  notify => Service['nginx'],
+}
+
+Service { 'nginx':
+  ensure  => 'running',
+  require => File['/home/unchained/random'],
 }
