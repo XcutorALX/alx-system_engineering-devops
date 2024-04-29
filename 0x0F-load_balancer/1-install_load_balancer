@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script installs haproxy load balancer and sets it up
+
+rules="frontend www
+        bind *:80
+        default_backend nginx_servers
+
+backend nginx_servers
+        balance roundrobin
+        mode http
+        server nginx1 54.237.64.147:80 check
+        server nginx2 34.232.77.198:80 check
+"
+
+apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.8
+apt-get -y install haproxy=2.8.\*
+echo "ENABLED=1" >> /etc/default/haproxy
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
+echo -e "$rules" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
