@@ -4,11 +4,13 @@
 rules="frontend www
         bind *:80
 	mode tcp
+	option tcplog
         default_backend nginx_servers
 
 backend nginx_servers
         balance roundrobin
         mode tcp
+	option tcplog
         server nginx1 54.237.64.147:80 check
         server nginx2 34.232.77.198:80 check
 "
