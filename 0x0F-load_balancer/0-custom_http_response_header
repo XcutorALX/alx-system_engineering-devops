@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# This script installs nginx on a web server
+# sets it's default respone to a file contianing Hello world!
+
+hostname=$(hostname)
+rules="server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+	add_header X-Served-By $hostname always;
+	server_name _;
+
+	error_page 404 /404.html;
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+}"
+
+apt-get -y update;
+apt-get -y install nginx;
+ufw allow 'Nginx HTTP';
+echo -e "$rules" > /etc/nginx/sites-available/default
+echo "Hello World!" > /var/www/html/index.html
+echo -e "Ceci n'est pas une page \n" > '/var/www/html/404.html'
+service nginx start
