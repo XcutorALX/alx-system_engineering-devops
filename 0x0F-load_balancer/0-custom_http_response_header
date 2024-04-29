@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # This script installs nginx on a web server
-# sets it's default respone to a file contianing Hello world!
 
 hostname=$(hostname)
 rules="server {
@@ -21,6 +20,7 @@ rules="server {
 
 	location / {
 		try_files \$uri \$uri/ =404;
+		proxy_redirect off;
 	}
 }"
 
