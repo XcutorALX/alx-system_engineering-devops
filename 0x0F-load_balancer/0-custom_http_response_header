@@ -14,13 +14,13 @@ rules="server {
 
 	error_page 404 /404.html;
 
-	location /redirect_me {
-		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-	}
-
 	location / {
 		try_files \$uri \$uri/ =404;
 		proxy_redirect off;
+	}
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 }"
 
