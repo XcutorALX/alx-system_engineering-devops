@@ -11,6 +11,7 @@ backend nginx_servers
         balance roundrobin
         mode tcp
 	option tcplog
+	option tcp-check
         server nginx1 54.237.64.147:80 check
         server nginx2 34.232.77.198:80 check
 "
