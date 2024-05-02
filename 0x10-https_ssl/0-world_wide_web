@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script accept 2 arguments, domain, and subdomain(optional) and prints the destination associiated
+
+dnsQuery() {
+	dig "$2.$1" | grep -A1 "ANSWER SECTION" | tail -n1 | \
+		awk -v sd="$2" '{printf "The subdomain %s is a %s record and points to %s\n", sd, $4, $5}'
+}
+
+if [ $# -lt 2 ]
+then
+	dnsQuery "$1" "www"
+	dnsQuery "$1" "lb-01"
+	dnsQuery "$1" "web-01"
+	dnsQuery "$1" "web-02"
+else
+	dnsQuery "$1" "$2"
+fi
